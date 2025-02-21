@@ -1,5 +1,20 @@
-#if row is x percent populated, then keep row
-save_row<-function(df,x) {
+#' Save Rows
+#'
+#' @param df Data frame object with rows and columns
+#' @param x Percentage of populated rows to keep, as a decimal.
+#'
+#' @returns Data frame
+#' @export
+#'
+#' @examples
+#' df<-data.frame(
+#' col1=c('cat','dog','bird','fish'),
+#' col2=c(2,3,NA,NA)
+#' col3=c('a','b','c','d'))
+#'
+#' result_df<-save_rows(df,0.33)
+
+save_rows<-function(df,x) {
 
   orig_cols<-ncol(df)#create separate var to capture original len of cols
 
