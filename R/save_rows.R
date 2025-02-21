@@ -9,7 +9,7 @@
 #' @examples
 #' df<-data.frame(
 #' col1=c('cat','dog','bird','fish'),
-#' col2=c(2,3,NA,NA)
+#' col2=c(2,3,NA,NA),
 #' col3=c('a','b','c','d'))
 #'
 #' result_df<-save_rows(df,0.33)
