@@ -4,6 +4,7 @@
 #' @param x Percentage of populated rows to keep, as a decimal.
 #'
 #' @returns Data frame
+#' @import dplyr
 #' @export
 #'
 #' @examples
