@@ -19,7 +19,7 @@ save_rows<-function(df,x) {
 
   orig_cols<-ncol(df)#create separate var to capture original len of cols
 
-  df$score = 0
+  df$score=0
 
   for(i in 1:nrow(df)) { #first looping by row
     for (j in 1:ncol(df)) { #then checks by col
@@ -35,7 +35,7 @@ save_rows<-function(df,x) {
       }
     }
   }
-  df<-df %>% dplyr::filter(df$percent_full >= x)
-  df<-subset(df,select=-c(score))
+  df<-df %>% dplyr::filter(df$percent_full >= x) %>%
+    dplyr::select(!df$score)
   return(df)
 }

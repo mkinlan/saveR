@@ -8,12 +8,13 @@
 #' @export
 #'
 #' @examples
-#' #' df<-data.frame(
+#' df<-data.frame(
 #' col1=c('cat','dog','bird','fish'),
 #' col2=c(2,3,NA,NA),
 #' col3=c('a','b','c','d'))
 #'
 #' result_df<-save_cols(df,0.33)
+#'
 save_cols<-function(df,x) {
   #matrix filled with 0s with same dims as df. This will store the sum of the columns
   m<-matrix(0,nrow=nrow(df),ncol=ncol(df), dimnames = list(rownames(df),colnames(df)))
@@ -36,7 +37,7 @@ save_cols<-function(df,x) {
   colsum_matrix<-colSums(m)
 
   #bind to matrix containing the number of rows per col
-  #use rowwise division to divide the count of NAs per col from total obs. per col. Result is a single col.
+  #use rowwise division to divide the count of NAs per col from total obs. per col.
   colsum_matrix<-rbind(colsum_matrix,rowcount_matrix)
   div_list<-apply(colsum_matrix,MARGIN = 2,function(x) 1.0-(x[1]/x[2]))
   div_df<-data.frame(div_list)
@@ -44,12 +45,11 @@ save_cols<-function(df,x) {
   #filtering by x
   div_df<-div_df %>% filter(div_df$div_list >= x)
 
-  #transpose
+  #creating a vector of the rownames, which are actually the column names from the original df
   vec<-rownames(div_df)
 
   #select appropriate cols only
   df<-df %>% select(any_of(vec))
 
-  print(vec)
   return(df)
 }
