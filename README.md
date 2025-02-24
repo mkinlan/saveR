@@ -22,8 +22,7 @@ pak::pak("mkinlan/saveR")
 
 ## Example
 
-Say you have a data set with nulls (aka, every data set) about the
-residents of a city:
+Say you have a data set with nulls (aka, every data set) about products:
 
 ``` r
 library(saveR)
