@@ -29,7 +29,7 @@ save_cols<-function(df,x) {
         m[i,j] = m[i,j]+1
       }
       else{
-        print("values here")
+        m[i,j] = m[i,j]
       }
     }
   }
