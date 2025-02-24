@@ -35,7 +35,7 @@ save_rows<-function(df,x) {
       }
     }
   }
-  df<-df %>% dplyr::filter(df$percent_full >= x) %>%
-    dplyr::select(!df$score)
-  return(df)
+  df<-df %>% dplyr::filter(df$percent_full >= x)
+  result<- df %>% dplyr::select(-df$score)
+  return(result)
 }
