@@ -36,7 +36,7 @@ save_rows<-function(df,x) {
       }
     }
   }
-  result<-df %>% dplyr::filter(df$percent_full >= x) %>% mutate(across(c('percent_full'),round,2))
+  result<-df %>% dplyr::filter(df$percent_full >= x) %>% mutate(across(c('percent_full'),\(x) round(x,2)))
   result<-subset(result,select=-c(score_temp))
   print(result)
   return(result)

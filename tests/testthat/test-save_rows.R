@@ -1,5 +1,3 @@
-context("save_rows")
-
 testthat::test_that("save_rows saves 33% of a df", {
   testthat::expect_equal(save_rows(
     test_df<-data.frame(col1=c('cat','dog','bird','fish'),
