@@ -36,5 +36,6 @@ save_rows<-function(df,x) {
     }
   }
   df<-df %>% dplyr::filter(df$percent_full >= x)
+  df<-subset(df,select=-c(score))
   return(df)
 }
